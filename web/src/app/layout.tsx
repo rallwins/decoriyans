@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
+import { Quicksand } from "next/font/google";
 import { SITE_CONFIG } from "@/types";
 import "./globals.css";
 import { ClientLayout } from "@/components/layout/ClientLayout";
 
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  variable: "--font-quicksand",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
+  metadataBase: new URL(`https://${SITE_CONFIG.domain}`),
   title: {
     default: `${SITE_CONFIG.name} — Handcrafted Treasures`,
     template: `%s | ${SITE_CONFIG.name}`,
@@ -26,6 +34,7 @@ export const metadata: Metadata = {
     url: `https://${SITE_CONFIG.domain}`,
     siteName: SITE_CONFIG.name,
     type: "website",
+    images: [{ url: SITE_CONFIG.logo, alt: SITE_CONFIG.name }],
   },
 };
 
@@ -35,8 +44,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-brand-50 text-earth-900 antialiased">
+    <html lang="en" className={quicksand.variable}>
+      <body className="bg-brand-gradient-soft text-earth-900 antialiased font-sans">
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

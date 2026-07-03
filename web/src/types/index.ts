@@ -87,13 +87,15 @@ export const CATEGORY_LABELS: Record<Category, string> = {
 
 export const SITE_CONFIG = {
   name: "Decoriyans",
+  logo: "/images/decoriyans-logo.png",
+  subtitle: "crafted for you",
   tagline: "Handcrafted with Soul, Delivered with Care",
   description:
     "Discover one-of-a-kind hand-drafted treasures from skilled artisans around the world. Every piece tells a story.",
   domain: "decoriyans.com",
-  email: "hello@decoriyans.com",
-  phone: "+1 (555) 234-5678",
-  address: "42 Artisan Lane, Brooklyn, NY 11201",
+  email: "info@decoriyans.com",
+  phone: "+91 784 588 2908",
+  address: "9 Deer Run, Rensselaer, NY 12144",
   social: {
     instagram: "https://instagram.com/decoriyans",
     pinterest: "https://pinterest.com/decoriyans",

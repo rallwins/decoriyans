@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { formatPrice } from "@/data/products";
-import { Button } from "@/components/ui/Button";
+import { buttonVariants } from "@/components/ui/Button";
 import { SITE_CONFIG } from "@/types";
 
 export default function CartPage() {
@@ -17,8 +17,8 @@ export default function CartPage() {
         <ShoppingBag className="w-16 h-16 text-earth-300 mx-auto mb-4" />
         <h1 className="text-2xl font-serif font-bold text-earth-900 mb-2">Your cart is empty</h1>
         <p className="text-earth-500 mb-6">Discover beautiful handcrafted treasures waiting for you.</p>
-        <Link href="/shop/">
-          <Button size="lg">Start Shopping</Button>
+        <Link href="/shop/" className={buttonVariants({ size: "lg" })}>
+          Start Shopping
         </Link>
       </div>
     );
@@ -102,8 +102,8 @@ export default function CartPage() {
               <span className="text-brand-800">{formatPrice(total)}</span>
             </div>
           </div>
-          <Link href="/checkout/" className="block mt-6">
-            <Button size="lg" className="w-full">Proceed to Checkout</Button>
+          <Link href="/checkout/" className={buttonVariants({ size: "lg", className: "w-full mt-6" })}>
+            Proceed to Checkout
           </Link>
           <Link href="/shop/" className="block text-center text-sm text-brand-700 mt-3 hover:underline">
             Continue Shopping

@@ -50,6 +50,6 @@ export const SITE_CONFIG = {
   name: "Decoriyans",
   tagline: "Handcrafted with Soul",
   domain: "decoriyans.com",
-  email: "hello@decoriyans.com",
+  email: "info@decoriyans.com",
   shipping: { freeThreshold: 75, standardRate: 8.99 },
 };

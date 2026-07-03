@@ -36,8 +36,8 @@ function ShopContent() {
             href="/shop/"
             className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
               !category && !query
-                ? "bg-brand-600 text-white"
-                : "bg-earth-100 text-earth-700 hover:bg-earth-200"
+                ? "bg-brand-500 text-white"
+                : "bg-earth-100 text-earth-700 hover:bg-brand-100 hover:text-brand-700"
             }`}
           >
             All

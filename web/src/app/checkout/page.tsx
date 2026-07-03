@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import { formatPrice } from "@/data/products";
-import { Button } from "@/components/ui/Button";
+import { buttonVariants } from "@/components/ui/Button";
 import { ShippingAddress } from "@/types";
 import { CheckCircle } from "lucide-react";
 
@@ -43,8 +43,8 @@ export default function CheckoutPage() {
         <p className="text-sm text-earth-500 mb-8">
           A confirmation email has been sent. Your handcrafted treasures will be on their way soon.
         </p>
-        <Link href="/shop/">
-          <Button size="lg">Continue Shopping</Button>
+        <Link href="/shop/" className={buttonVariants({ size: "lg" })}>
+          Continue Shopping
         </Link>
       </div>
     );
@@ -129,9 +129,9 @@ export default function CheckoutPage() {
               <span className="text-brand-800">{formatPrice(total)}</span>
             </div>
           </div>
-          <Button type="submit" size="lg" className="w-full mt-6">
+          <button type="submit" className={buttonVariants({ size: "lg", className: "w-full mt-6" })}>
             Place Order
-          </Button>
+          </button>
         </div>
       </form>
     </div>

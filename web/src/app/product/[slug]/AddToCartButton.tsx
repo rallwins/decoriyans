@@ -18,6 +18,7 @@ export function AddToCartButton({ product }: { product: Product }) {
 
   return (
     <Button
+      variant={added ? "success" : "primary"}
       size="lg"
       onClick={handleAdd}
       disabled={!product.inStock}

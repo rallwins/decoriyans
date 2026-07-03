@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ShoppingBag, Search, Menu, X } from "lucide-react";
+import { buttonVariants } from "@/components/ui/Button";
 import { SITE_CONFIG } from "@/types";
 import { useCart } from "@/context/CartContext";
 import { useState } from "react";
@@ -19,13 +21,18 @@ export function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-brand-50/95 backdrop-blur-sm border-b border-brand-200">
+    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brand-200/60 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-2xl font-serif font-bold text-brand-800 tracking-tight">
-              {SITE_CONFIG.name}
-            </span>
+        <div className="flex items-center justify-between h-16 md:h-[4.5rem]">
+          <Link href="/" className="flex items-center shrink-0">
+            <Image
+              src={SITE_CONFIG.logo}
+              alt={SITE_CONFIG.name}
+              width={200}
+              height={56}
+              className="h-10 md:h-12 w-auto"
+              priority
+            />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -33,7 +40,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-earth-700 hover:text-brand-700 font-medium transition-colors"
+                className="text-earth-600 hover:text-brand-600 font-medium transition-colors"
               >
                 {link.label}
               </Link>
@@ -43,26 +50,26 @@ export function Header() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => setSearchOpen(!searchOpen)}
-              className="p-2 text-earth-600 hover:text-brand-700 transition-colors"
+              className="p-2 text-earth-500 hover:text-brand-600 transition-colors"
               aria-label="Search"
             >
               <Search className="w-5 h-5" />
             </button>
             <Link
               href="/cart/"
-              className="relative p-2 text-earth-600 hover:text-brand-700 transition-colors"
+              className="relative p-2 text-earth-500 hover:text-brand-600 transition-colors"
               aria-label="Cart"
             >
               <ShoppingBag className="w-5 h-5" />
               {itemCount > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 bg-brand-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-medium">
+                <span className="absolute -top-0.5 -right-0.5 bg-brand-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-medium shadow-sm">
                   {itemCount}
                 </span>
               )}
             </Link>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 text-earth-600"
+              className="md:hidden p-2 text-earth-500"
               aria-label="Menu"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -77,13 +84,10 @@ export function Header() {
                 type="search"
                 name="q"
                 placeholder="Search handcrafted treasures..."
-                className="flex-1 px-4 py-2 rounded-lg border border-brand-200 bg-white focus:outline-none focus:ring-2 focus:ring-brand-500"
+                className="flex-1 px-4 py-2 rounded-lg border border-brand-200 bg-white focus:outline-none focus:ring-2 focus:ring-brand-400"
                 autoFocus
               />
-              <button
-                type="submit"
-                className="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors"
-              >
+              <button type="submit" className={buttonVariants({ size: "sm" })}>
                 Search
               </button>
             </form>
@@ -92,13 +96,13 @@ export function Header() {
       </div>
 
       {mobileOpen && (
-        <nav className="md:hidden border-t border-brand-200 bg-brand-50 px-4 py-4 space-y-3">
+        <nav className="md:hidden border-t border-brand-100 bg-white px-4 py-4 space-y-3">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="block text-earth-700 hover:text-brand-700 font-medium py-2"
+              className="block text-earth-600 hover:text-brand-600 font-medium py-2"
             >
               {link.label}
             </Link>

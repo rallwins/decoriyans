@@ -23,7 +23,7 @@ export function ProductCard({ product }: ProductCardProps) {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
         {product.originalPrice && (
-          <span className="absolute top-3 left-3 bg-brand-600 text-white text-xs font-semibold px-2 py-1 rounded">
+          <span className="absolute top-3 left-3 bg-brand-500 text-white text-xs font-semibold px-2 py-1 rounded shadow-sm">
             Sale
           </span>
         )}
